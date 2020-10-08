@@ -9,5 +9,11 @@ public class LoginPageTest {
 		
 		System.out.println("Test 1");
 	}
+	
+	@Test
+	public void Test2() {
+		
+		System.out.println("Test 2");
+	}
 
 }
