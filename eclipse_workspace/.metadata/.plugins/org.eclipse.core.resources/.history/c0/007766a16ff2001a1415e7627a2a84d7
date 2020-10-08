@@ -1,0 +1,65 @@
+package strOperations;
+
+public class findSubstring {
+	
+	
+	public static void main(String args[]) {
+		
+		String str1 = "applecrisps";
+		String str2="crisp";
+	//	String str2="caisp";
+		
+		int len1=str1.length();
+		int len2=str2.length();
+		System.out.println("The length of String is :"+len1);
+		System.out.println("The length of subString is :"+len2);
+   		
+		int i=0,k=0;
+		int index=0;
+	//	int j=len2;
+		boolean chexists = false;
+		while(i<len1) {
+			//System.out.println("Value of i and k is :"+i +"and"+k);
+			if(str1.charAt(i)==str2.charAt(k))
+			{
+				k++;
+			
+			}
+			else
+			{
+				i=i-k;
+				k=0;
+				
+			}
+			i++;
+			if(k==len2) {
+			  index= i-k;	
+		
+		    }
+		System.out.println("The string contains substring: "+chexists);
+	}
+	
+	
+
+}
+
+
+
+while(i < haystack.length()){          
+    if( needle.charAt(j) == haystack.charAt(i)){
+        j++;
+    } else {
+        i = i - j;
+        j = 0;
+    }   
+
+    i++;
+
+    if(j == needle.length()){
+        return i - j;
+    } 
+}
+
+return -1;
+}
+}

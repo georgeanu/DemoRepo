@@ -1,0 +1,40 @@
+package repeat;
+
+public class countPrimesL204 {
+	
+	public static void countPrimeNum(int num) {
+		boolean primes[] = new boolean[num];
+		int count=0;
+		for(int i=2;i*i<primes.length;i++) {
+			if (!(primes[i])){
+				for(int j=i;j*i<primes.length;j++) {
+					primes[i*j] = true;
+					count++;
+				}
+				
+			}
+			
+		}
+		
+		System.out.println("number of prime numbers "+(primes.length - count));
+		
+	/**	int count=0;
+		for(int i=0;i<primes.length;i++) {
+			
+			if(!primes[i])
+				count++;
+		}*/
+		
+	}
+	
+	
+	public static void main(String a[]) {
+		
+		countPrimeNum(10);
+		
+		
+	}
+		
+		
+
+}

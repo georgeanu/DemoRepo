@@ -1,0 +1,11 @@
+package com.qa.tests;
+
+public class LoginPageTest {
+	
+	@Test
+	public void Test1() {
+		
+		System.out.println("Test 1");
+	}
+
+}

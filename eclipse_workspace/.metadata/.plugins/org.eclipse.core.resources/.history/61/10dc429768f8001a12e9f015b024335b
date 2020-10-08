@@ -1,0 +1,183 @@
+package Veevaprep;
+
+import java.util.*;
+
+public class Practice2 {
+	
+	public static int findDuplicate(int[] num) {
+		Set<Integer> hs = new HashSet<Integer>();
+		int i=0,temp=0;
+		while(i<num.length) {
+			
+			if(hs.contains(num[i])) {
+				
+				temp=num[i];
+				
+				//System.out.println("The duplicate number is "+num[i]);
+			}
+			else {
+				hs.add(num[i]);
+			}
+			i++;	
+		}
+		return temp;
+		
+	}
+	
+	public static boolean validAnagram(String s, String t) {
+	    int[] ch= new int[26];
+		if(s.length() != t.length()) return false;
+		for(int i=0;i<s.length();i++) {
+			ch[s.charAt(i) -'a']++;
+			ch[t.charAt(i) -'a']--;
+	
+		}
+		
+
+		for(int count:ch) {
+			if(count != 0)
+				return false;
+				
+		}
+		return true;
+
+	}
+	
+	public static int[] findSum(int[] nums, int target) {
+		
+		Map<Integer,Integer> hm = new HashMap<Integer,Integer>();
+		for(int i=0;i<nums.length;i++) {
+			
+			if(hm.containsKey(target-nums[i]))
+				return new int[] {hm.get(target-nums[i]),i};
+			hm.put(nums[i], i);
+		}
+		return new int[] {};
+		
+		
+	}
+	
+	public static int longestSubstring(String str) {
+		int max=0,aptr=0,bptr=0;
+		HashSet<Character> hs = new HashSet<Character>();
+		while(bptr <str.length() ) {
+			
+			if(!hs.contains(str.charAt(bptr))) {
+				hs.add(str.charAt(bptr));
+			    bptr++;
+				max=Math.max(hs.size(),max);
+			}
+			else {
+				hs.remove(str.charAt(aptr));
+				aptr++;
+			//	max=Math.max(hs.size(),max);
+				
+			}
+				
+		}
+		return max;
+	
+	}
+	
+	public static int convert2Int(String str) {
+		
+		int len=str.length();
+		int num=0, i=0;
+		boolean neg = false;
+		if(str.charAt(0) == '-') {
+			neg =true;
+			i=1;
+		}			
+		while(i<str.length()) {
+			
+			num *= 10;
+			num +=str.charAt(i++) - '0';
+			
+		}
+		if(neg) {
+			num=-num;
+		}
+		return num;
+	}
+	
+	public static boolean powerofthree(int n) {
+		
+		if(n<0) return false;
+		if(n==1)return true;
+		while(n>1) {
+			
+			if( n% 3 ==0) return powerofthree(n/3);
+			else
+				return false;
+		}
+		
+		return true;
+		
+	}
+	
+	public static boolean poweroftwo(int n) {
+		
+		int i=1;
+		while(i< n) {
+		
+			i *=2;
+		
+		}
+		if(i == n)
+			return true;
+		else
+			return false;
+	}
+	
+	public static char firstUnique(String str) {
+		HashSet<Character> hs = new HashSet<Character>();
+		
+		int i=0;
+		while(i<str.length()) {
+			
+			if(!hs.contains(str.charAt(i))) {
+				hs.add(str.charAt(i));
+			}	
+			
+		}
+	//	char c= (char) hs.toArray()[0];
+		char c ='';
+		Iterator<Character> is = hs.iterator();
+		int count=0;
+		while(is.hasNext()) {
+			 c = is.next();
+			count++;
+			if(count ==1)
+				break;
+			
+			
+		}
+		return c;
+		
+		
+		
+	}
+	
+	public static void main(String args[]) {
+		int[] nums = new int[] {1,2,3,5,6,1};
+		int[] arr = new int[] {2,3,7,5,1};
+		int[] sumtwo = new int[2];
+//		System.out.println("The duplicate number is "+findDuplicate(nums));
+//		System.out.println("The strings are anagrams: "+validAnagram("serene","eneres"));
+		System.out.println("The strings are anagrams: "+validAnagram("serene","rneres"));
+		System.out.println("The sum for target is at ");
+		sumtwo=findSum(arr,9);
+		for(int i=0;i<sumtwo.length;i++) {
+			System.out.println(sumtwo[i]);
+		}
+		System.out.println("Longest Substring is "+longestSubstring("pwwkew"));
+		System.out.println("Convert string to num "+convert2Int("123"));
+		System.out.println("Num is power of three "+powerofthree(9));
+		System.out.println("Num is power of two "+poweroftwo(8));
+		System.out.println("First unique character is "+firstUnique("leetcode"));
+	}
+	
+	
+
+}
+ 

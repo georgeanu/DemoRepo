@@ -1,0 +1,24 @@
+package repeat;
+
+public class countPrimesL204 {
+	
+	public static void countPrimeNum(int num) {
+		
+		for(int i=2;i<=num;i++) {
+			
+			
+		}
+		
+		
+	}
+	
+	
+	public static void main(String a[]) {
+		
+		
+		
+	}
+		
+		
+
+}

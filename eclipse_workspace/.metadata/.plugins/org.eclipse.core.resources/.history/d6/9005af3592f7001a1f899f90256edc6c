@@ -1,0 +1,163 @@
+package Veevaprep;
+
+public class Practice {
+	
+	public static String reverseString(String str) {
+	 
+		int len = str.length();
+		int i=0, j=len-1;
+		char temp;
+		char[] ch =str.toCharArray();
+		while(i<j) {
+			
+		 temp=ch[j];
+		ch[j]=ch[i];
+		 ch[i]=temp;
+		 
+		i++;
+		j--;
+			
+		}
+		str=String.copyValueOf(ch);
+		return str;
+		
+	}
+	
+	public static boolean palinAlpha(String str) {
+	//char[] ch = str.toCharArray();
+	String newstr="";
+	for(char ch: str.toCharArray()) {
+		
+		if(Character.isDigit(ch) || Character.isLetter(ch))
+			newstr +=ch;
+		newstr= newstr.toLowerCase();	
+	}
+	int aptr=0, bptr=newstr.length()-1;
+	while(aptr < bptr) {
+		
+		if(newstr.charAt(aptr) != newstr.charAt(bptr))
+			return false;
+		aptr++;
+		bptr--;
+		
+	}
+	return true;
+		
+			
+	}
+	
+	public static boolean palin(String str) {
+		
+		int aptr=0, bptr=str.length()-1;
+		while(aptr <bptr) {
+			
+			if(str.charAt(aptr) != str.charAt(bptr))
+				return false;
+			aptr++;
+			bptr--;
+			
+		}
+		
+		
+		return true;
+	}
+	
+	public static int reverseInt(int num) {
+		long rev=0;
+		
+		while(num%10 !=0 || num/10 !=0) {
+			
+			rev = rev*10 + num%10;
+			num = num/10;
+			
+		}
+		
+		
+		if((rev>Integer.MAX_VALUE) || (rev < Integer.MIN_VALUE)) return 0;
+		return (int) rev;
+	}
+	
+	public static int fact(int num) {
+		
+		int res;
+		if(num ==0) return 1;
+		
+		res= num * fact(num-1);
+		
+		return res;
+	}
+	
+	public static int fib(int num) {
+		
+	//	int[] fibna = new int[num];
+	//	fibna[0]=0;
+	//	fibna[1]=1;
+	    if(num < 2 ) return num;
+		int series=0;
+		
+		series = fib(num -2) +fib(num -1); 
+
+	/**	for(int i=2;i<num;i++) {
+			fibna[i] =  fibna[i=1]+ fibna[i-2];
+			
+		}*/
+			
+		return series;
+
+	}
+	
+	
+	public static int countPrime(int n) {
+		int count=0;
+		boolean[] primes = new boolean[n];
+		
+		for(int i=2;i<primes.length;i++) {
+			
+			primes[i] =true;
+		}
+		
+		for(int i=2;i*i<primes.length;i++) {
+			if(primes[i]) {
+				
+				for(int j=i;j*i<primes.length;j++) {
+					
+					primes[i*j] =false;
+				}
+			}
+		}
+		for(int i=2;i<primes.length;i++) {
+			if(primes[i])
+				count++;
+		}
+		
+		return count;
+	}
+	
+public static boolean isPrime(int n) {
+	boolean prime=false;
+   for(int i=2;i*i<n;i++) {
+	   
+	   if(n % i == 0) 
+		   return false;
+		
+   }
+   return true;
+}
+	
+public static void main(String args[]) {
+		
+		System.out.println("The string reversed is " +reverseString("applecrisps"));
+		System.out.println("The reverese num is " +reverseInt(123));
+		System.out.println("the string is palin : "+palinAlpha("A man, a plan, a canal: Panama"));
+		System.out.println("the string is palin : "+palin("hannah"));
+		System.out.println("the string is palin : "+palin("racecar"));
+		System.out.println("the string is palin : "+palin("prayer"));
+		System.out.println("The factorial is " +fact(5));
+		System.out.println("The fibnocci series is "+fib(9));
+		System.out.println("The number of primes are "+countPrime(6));
+		System.out.println("The number is prime: "+isPrime(29));
+		
+	}
+	
+
+}

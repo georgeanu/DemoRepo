@@ -1,0 +1,56 @@
+package Veevaprep;
+
+import java.util.*;
+
+public class Practice2 {
+	
+	public static int findDuplicate(int[] num) {
+		Set<Integer> hs = new HashSet<Integer>();
+		int i=0,temp=0;
+		while(i<num.length) {
+			
+			if(hs.contains(num[i])) {
+				
+				temp=num[i];
+				
+				//System.out.println("The duplicate number is "+num[i]);
+			}
+			else {
+				hs.add(num[i]);
+			}
+			i++;	
+		}
+		return temp;
+		
+	}
+	
+	public static boolean validAnagram(String s, String t) {
+	    int[] ch= new int[26];
+		if(s.length() != t.length()) return false;
+		for(int i=0;i<s.length();i++) {
+			ch[s.charAt(i) -'a']++;
+			ch[t.charAt(i) -'a']--;
+	
+		}
+		
+
+		for(int count:ch) {
+			if(count != 0)
+				return false;
+				
+		}
+		return true;
+		
+		
+		
+	}
+	
+	
+	public static void main(String args[]) {
+		int[] nums = new int[] {1,2,3,5,6,1};
+		System.out.println("The duplicate number is "+findDuplicate(nums));
+	}
+	
+	
+
+}

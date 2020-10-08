@@ -1,0 +1,15 @@
+package Veevaprep;
+
+public class Practice2 {
+	
+	public static void findDuplicate(int num) {
+		
+		
+		
+		
+	}
+	
+	
+	
+
+}
